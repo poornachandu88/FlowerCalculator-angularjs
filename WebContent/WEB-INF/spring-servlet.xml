@@ -44,7 +44,7 @@
 	 <mvc:resources  mapping="/resources/**" location="/resources/" />
 
 
-	<bean id="dataSource"
+	<!-- <bean id="dataSource"
 		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName"
 			value="com.mysql.jdbc.Driver" />
@@ -52,7 +52,18 @@
 			value="jdbc:mysql://localhost:3306/flowersdb" />
 		<property name="username" value="root" />
 		<property name="password" value="root" />
+	</bean> -->
+	 <bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName"
+			value="org.h2.Driver" />
+		<property name="url"
+			value="jdbc:h2:tcp://localhost/~/test" />
+		<property name="username" value="sa" />
+		<property name="password" value="" />
 	</bean>
+	
+	
 
 
 	<bean id="hibernate4AnnotatedSessionFactory"
@@ -65,8 +76,11 @@
 		</property>
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect
+				<!-- <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect
+				</prop> -->
+				<prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect
 				</prop>
+				
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
 			</props>

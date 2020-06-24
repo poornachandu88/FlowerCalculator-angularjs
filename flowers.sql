@@ -10,17 +10,18 @@
   
   
  
-   <beans:bean id="dataSource"
+   <bean id="dataSource"
 		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-		<beans:property name="driverClassName"
+		<property name="driverClassName"
 			value="org.h2.Driver" />
-		<beans:property name="url"
+		<property name="url"
 			value="jdbc:h2:tcp://localhost/~/test" />
-		<beans:property name="username" value="sa" />
-		<beans:property name="password" value="" />
-	</beans:bean>
+		<property name="username" value="sa" />
+		<property name="password" value="" />
+	</bean>
 	
-	org.hibernate.dialect.H2Dialect
+<prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect
+				</prop>
   
 	
 	 
@@ -41,15 +42,15 @@ use flowersdb;
   primary key (id));
 	
 	
-  <beans:bean id="dataSource"
-	class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-	<beans:property name="driverClassName"
+    <bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName"
 			value="com.mysql.jdbc.Driver" />
-		<beans:property name="url"
-		value="jdbc:mysql://localhost:3306/filedb" />
-	<beans:property name="username" value="root" />
-	<beans:property name="password" value="root" />
-</beans:bean>
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/flowersdb" />
+		<property name="username" value="root" />
+		<property name="password" value="root" />
+	</bean> 
 
 org.hibernate.dialect.MySQLDialect
  
